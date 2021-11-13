@@ -74,16 +74,16 @@ useEffect(()=>{
         // Signed in
         const user = userCredential.user;
         alert('login success')
-        if((location?.state?.from?.pathname)?.includes('/newdashboard')){
-          history.replace('/newdashboard')
-        }else{
+        // if((location?.state?.from?.pathname)?.includes('/newdashboard')){
+        //   history.replace('/newdashboard')
+        // }else{
            
-          const destination=location?.state?.from || '/'
-          history.replace(destination);
-        }
+        // }
+        const destination=location?.state?.from || '/'
+        history.replace(destination);
       })
       .catch((error) => {
-        setError(error.message)
+        // setError(error.message)
         const errorCode = error.code;
         const errorMessage = error.message;
       }).finally(()=>{
