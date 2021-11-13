@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8b5ef52a.chunk.css",
+    "main.js": "/static/js/main.30c3b5e2.chunk.js",
+    "main.js.map": "/static/js/main.30c3b5e2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cb2f9228.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cb2f9228.js.map",
+    "static/js/2.fb69d9ce.chunk.js": "/static/js/2.fb69d9ce.chunk.js",
+    "static/js/2.fb69d9ce.chunk.js.map": "/static/js/2.fb69d9ce.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.8b5ef52a.chunk.css.map": "/static/css/main.8b5ef52a.chunk.css.map",
+    "static/js/2.fb69d9ce.chunk.js.LICENSE.txt": "/static/js/2.fb69d9ce.chunk.js.LICENSE.txt",
+    "static/media/about.cf1e70fb.jpg": "/static/media/about.cf1e70fb.jpg",
+    "static/media/carousel1.7f0ea704.jpg": "/static/media/carousel1.7f0ea704.jpg",
+    "static/media/carousel2.b7f5e12a.jpg": "/static/media/carousel2.b7f5e12a.jpg",
+    "static/media/carousel3.21834cb1.jpg": "/static/media/carousel3.21834cb1.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb2f9228.js",
+    "static/js/2.fb69d9ce.chunk.js",
+    "static/css/main.8b5ef52a.chunk.css",
+    "static/js/main.30c3b5e2.chunk.js"
+  ]
+}

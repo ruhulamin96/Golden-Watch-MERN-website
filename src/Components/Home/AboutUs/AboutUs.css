@@ -1,0 +1,43 @@
+.btn-about {
+    -webkit-border-radius: 1;
+    -moz-border-radius: 1;
+    border-radius: 1px;
+    font-family: Arial;
+    color: #C40D2E;
+    font-size: 20px;
+    background: #ffff;
+    padding: 8px 25px 8px 25px;
+    border: solid #C40D2E 2px;
+    border-radius: 5px;
+    transition: .5s;
+    text-decoration: none;
+  }
+  
+  .btn-about:hover {
+    background: #C40D2E;
+    color: white;
+
+    text-decoration: none;
+  }
+  .img-up-down{
+  
+   position: absolute;
+  
+  }
+  .img-up-down {
+    animation: MoveUpDown 2s linear infinite;
+    position: relative;
+    left: 0;
+    bottom: 0;
+  }
+  .img-up-down img{
+    border-radius: 1rem;
+  }
+  @keyframes MoveUpDown {
+    0%, 100% {
+      top: 0;
+    }
+    50% {
+      top: 1.5rem;
+    }
+  }

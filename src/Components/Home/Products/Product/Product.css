@@ -1,0 +1,21 @@
+.product-about {
+    -webkit-border-radius: 1;
+    -moz-border-radius: 1;
+    border-radius: 1px;
+    font-family: Arial;
+    color: #C40D2E;
+    font-size: 20px;
+    background: #ffff;
+    padding: 8px 25px 8px 25px;
+    border: solid #C40D2E 0px;
+    transition: .5s;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  
+  .product-about:hover {
+    background: #C40D2E;
+    color: white;
+
+    text-decoration: none;
+  }
