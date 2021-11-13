@@ -8,6 +8,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -15,6 +16,8 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isload, setIsload] = useState(true);
 
   ///create new user
   const createUser = (email, password, history, location, name) => {
@@ -74,6 +77,18 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
+        axios
+        .get(
+          `https://enigmatic-fjord-26508.herokuapp.com/users?email=${email}`
+        )
+        .then((result) => {
+          if(result.data.admin){
+            history.push('/newdashboard');
+          }
+          setIsAdmin(result.data.admin);
+          setIsload(false);
+        });
+
         const user = userCredential.user;
         alert("login success");
         if((location?.state?.from?.pathname)?.includes('/newdashboard')){
@@ -114,7 +129,7 @@ const useFirebase = () => {
     loginUser,
     logout,
     isLoading,
-    error,
+    error,isAdmin
   };
 };
 export default useFirebase;

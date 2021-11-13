@@ -11,21 +11,21 @@ import AddProduct from "./Admin/AddProduct/AddProduct";
 import ManageProduct from "./Admin/ManageProduct/ManageProduct";
 function NewDashBoard() {
   let { path, url } = useRouteMatch();
-  const { user, logout } = useAuth();
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isload, setIsload] = useState(true);
-  useEffect(() => {
-    axios
-      .get(
-        `https://enigmatic-fjord-26508.herokuapp.com/users?email=${user.email}`
-      )
-      .then((result) => {
+  const { user, logout, isLoading, isAdmin } = useAuth();
+//   const [isAdmin, setIsAdmin] = useState(false);
+//   const [isload, setIsload] = useState(true);
+//   useEffect(() => {
+//     axios
+//       .get(
+//         `https://enigmatic-fjord-26508.herokuapp.com/users?email=${user.email}`
+//       )
+//       .then((result) => {
         
-        setIsAdmin(result.data.admin);
-        setIsload(false);
-      });
-  }, []);
-  if (isload) {
+//         setIsAdmin(result.data.admin);
+//         setIsload(false);
+//       });
+//   }, []);
+  if (isLoading) {
     return (
       <div className="d-flex align-items-center justify-content-center h-100 position-absolute w-100 text_color">
         <div
