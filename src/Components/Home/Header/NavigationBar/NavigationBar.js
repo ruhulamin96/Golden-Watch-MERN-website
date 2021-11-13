@@ -30,7 +30,7 @@ function NavigationBar() {
                 </Link>
               </li>
               <li class="nav-item">
-                {user?.email && <Link class="nav-link active fs-4 bottom-border" to="/dashboard">
+                {user?.email && <Link class="nav-link active fs-4 bottom-border" to="/newdashboard">
                   Dashboard
                 </Link>}
               </li>

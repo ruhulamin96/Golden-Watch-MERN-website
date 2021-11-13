@@ -11,6 +11,8 @@ import NavigationBar from "./Components/Home/Header/NavigationBar/NavigationBar"
 import PlaceOrder from "./Components/Home/Products/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import NewDashBoard from "./Components/Dashboard/NewDashBoard";
+import NotFound from "./Components/Home/NotFound/NotFound";
 function App() {
   return (
     <div className="App">
@@ -36,13 +38,15 @@ function App() {
               <NavigationBar></NavigationBar>
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
-            <PrivateRoute  path='/dashboard'>
-                <Dashboard></Dashboard>
+            <PrivateRoute path="/newdashboard">
+              <NewDashBoard></NewDashBoard>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>
-    
     </div>
   );
 }
