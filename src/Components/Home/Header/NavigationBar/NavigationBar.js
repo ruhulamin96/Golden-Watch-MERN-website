@@ -30,6 +30,11 @@ function NavigationBar() {
                 </Link>
               </li>
               <li class="nav-item">
+                <Link  class="nav-link active fs-4 bottom-border" aria-current="page" to="/allproducts">
+                  Explore Watch
+                </Link>
+              </li>
+              <li class="nav-item">
                 {user?.email && <Link class="nav-link active fs-4 bottom-border" to="/newdashboard">
                   Dashboard
                 </Link>}

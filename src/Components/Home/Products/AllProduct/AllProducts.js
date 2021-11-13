@@ -1,15 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './AllProducts.css'
+import "./AllProducts.css";
 function AllProducts() {
   const [allProducts, setallProducts] = useState([]);
   const [isload, setIsload] = useState(true);
   useEffect(() => {
-    axios.get("https://enigmatic-fjord-26508.herokuapp.com/products").then((result) => {
-      setallProducts(result.data);
-      setIsload(false);
-    });
+    axios
+      .get("https://enigmatic-fjord-26508.herokuapp.com/products")
+      .then((result) => {
+        setallProducts(result.data);
+        setIsload(false);
+      });
   }, []);
 
   if (isload) {
@@ -27,29 +29,32 @@ function AllProducts() {
   return (
     <div>
       <div className="container mt-5 ">
-        <h1 className="my-5 text_color">THE WORLD’S BEST LUXURY WATCH BRANDS</h1>
+        <h1 className="my-5 text_color">
+          THE WORLD’S BEST LUXURY WATCH BRANDS
+        </h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           {allProducts.map((product) => (
             <div class="col">
               <div class="card h-100 border-0 ">
-               <div className="img-hover-zoom">
-               <img src={product.img} class="card-img-top" alt="..." />
-               </div>
+                <div className="img-hover-zoom">
+                  <img src={product.img} class="card-img-top" alt="..." />
+                </div>
                 <div class="card-body d-flex justify-content-end flex-column">
                   <h5 class="card-title text_color fw-bold">{product.name}</h5>
                   <p class="card-text">{product.desc}</p>
-                  <h5 className="text_color fw-bold">Price: {product.price}$</h5>
-                 <div className="">
-                 <Link to={`/placeorder/${product._id}`}>
-                    {" "}
-                    <button className=" product-about w-75 fw-bold ">
-                      <span>
-                        <i class="fas fa-cart-plus"></i>
-                      </span>{" "}
-                      SHOP NOW
-                    </button>
-                  </Link>
-                 </div>
+                  <h5 className="text_color fw-bold">
+                    Price: {product.price}$
+                  </h5>
+                  <div className="">
+                    <Link to={`/placeorder/${product._id}`}>
+                      <button className=" product-about w-75 fw-bold ">
+                        <span className="me-3">
+                          <i class="fas fa-cart-plus"></i>
+                        </span>
+                        SHOP NOW
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

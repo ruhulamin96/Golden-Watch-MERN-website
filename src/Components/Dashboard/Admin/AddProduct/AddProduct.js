@@ -13,10 +13,10 @@ function AddProduct() {
         const desc=descRef.current.value;
         const img=imgRef.current.value;
         const newProduct={name, price, desc, img}
-        console.log(newProduct)
+        
         axios.post('https://enigmatic-fjord-26508.herokuapp.com/products', newProduct)
-        .then(result=>console.log(result.data))
-        alert('add product successfull')
+        .then(result=>alert('Add product successfull'))
+        
         e.prventDefault()
     }
     

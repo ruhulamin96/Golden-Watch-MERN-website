@@ -15,15 +15,16 @@ function Product({ product }) {
             <h4 class="card-title text_color fw-bold">{name}</h4>
             <p class="card-text">{desc}</p>
             <h5 className=" text_color fw-bold">Price: {price}$</h5>
-            <Link to={`/placeorder/${_id}`}>
-              {" "}
-              <button className=" product-about w-75 fw-bold">
-                <span>
-                  <i class="fas fa-cart-plus"></i>
-                </span>{" "}
-                SHOP NOW
-              </button>
-            </Link>
+            <div className="">
+              <Link to={`/placeorder/${_id}`}>
+                <button className=" product-about w-75 fw-bold">
+                  <span className="me-3">
+                    <i class="fas fa-cart-plus"></i>
+                  </span>
+                   SHOP NOW
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

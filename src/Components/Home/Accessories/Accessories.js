@@ -9,7 +9,7 @@ function Accessories() {
     },[])
   return (
     <div className="container">
-        <h1 className="mb-5 text_color">WATCH ACCESSORIES</h1>
+        <h1 className=" text_color">WATCH ACCESSORIES</h1>
       <div class="row row-cols-1 row-cols-md-4 g-4 border-0">
         { accessories.map(accessories=><div class="col ">
           <div class="card h-100 border-0">

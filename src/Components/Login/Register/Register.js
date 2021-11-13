@@ -26,7 +26,7 @@ function Register() {
     createUser(loginData.email, loginData.password, history, location, name);
     axios
       .post(`https://enigmatic-fjord-26508.herokuapp.com/users`, loginData)
-      .then((result) => console.log(result));
+      .then((result) => {});
     e.preventDefault();
   };
   return (

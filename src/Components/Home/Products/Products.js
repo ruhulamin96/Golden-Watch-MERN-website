@@ -9,10 +9,12 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   useEffect(() => {
-    axios.get("https://enigmatic-fjord-26508.herokuapp.com/products").then((result) => {
-      setProducts(result.data.slice(0, 6));
-      setLoad(false);
-    });
+    axios
+      .get("https://enigmatic-fjord-26508.herokuapp.com/products")
+      .then((result) => {
+        setProducts(result.data.slice(0, 6));
+        setLoad(false);
+      });
   }, []);
   if (load) {
     return (
@@ -27,17 +29,12 @@ function Products() {
   }
   return (
     <div>
-      <div className="container mt-5">
+      <div className="container mb-5">
         <h1 className="my-5 text_color">GRAB THE BEST LUXURY WATCH BRANDS</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           {products.map((product) => (
             <Product product={product}></Product>
           ))}
-          <div className="mx-auto">
-            <Link to="/allproducts">
-              <button className="btn explore-product fw-bold w-100 my-5 ">  EXPLORE MORE PRODUCT <span><i class="fas fa-long-arrow-alt-right "></i></span></button>
-            </Link>
-          </div>
         </div>
       </div>
     </div>

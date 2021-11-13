@@ -67,15 +67,20 @@ useEffect(()=>{
 },[user.email])
   //signin user
   const loginUser = (email, password, history, location) => {
+    // console.log('admin ', (location.state.from.pathname).includes('/newdashboard'))
     setIsLoading(true)
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         alert('login success')
-        console.log(location, history)
-        const destination=location?.state?.from || '/'
-        history.replace(destination);
+        if((location.state.from.pathname).includes('/newdashboard')){
+          history.replace('/newdashboard')
+        }else{
+
+          const destination=location?.state?.from || '/'
+          history.replace(destination);
+        }
       })
       .catch((error) => {
         setError(error.message)

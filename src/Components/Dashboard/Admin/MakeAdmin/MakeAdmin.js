@@ -9,7 +9,7 @@ function MakeAdmin() {
       const makeAdmin={email:adminRef.current.value};
       adminRef.current.value=""
       axios.put(`https://enigmatic-fjord-26508.herokuapp.com/users/`,makeAdmin)
-      .then(result=>{ console.log(result.data)
+      .then(result=>{ 
         if(!result.data.value){
          alert('please create account first');
          history.push('/register')
@@ -18,7 +18,7 @@ function MakeAdmin() {
           alert('Admin Created Successful')
         }
       });
-        // console.log(makeAdmin)
+      
 e.preventDefault()
     }
   return (

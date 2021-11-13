@@ -20,7 +20,7 @@ function NewDashBoard() {
         `https://enigmatic-fjord-26508.herokuapp.com/users?email=${user.email}`
       )
       .then((result) => {
-        // console.log(result)
+        
         setIsAdmin(result.data.admin);
         setIsload(false);
       });
