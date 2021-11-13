@@ -1,6 +1,6 @@
 # Golden Watch
 
-You can visit live site. click here [Golden Watch](https://github.com/facebook/create-react-app).
+You can visit live site. click here [Golden Watch](https://golden-watch.web.app/).
 
 ## Bullet Points
 1. This Project i have make based on React
