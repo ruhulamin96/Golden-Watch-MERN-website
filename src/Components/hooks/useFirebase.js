@@ -74,10 +74,10 @@ useEffect(()=>{
         // Signed in
         const user = userCredential.user;
         alert('login success')
-        if((location.state.from.pathname).includes('/newdashboard')){
+        if((location?.state?.from?.pathname)?.includes('/newdashboard')){
           history.replace('/newdashboard')
         }else{
-
+           
           const destination=location?.state?.from || '/'
           history.replace(destination);
         }
