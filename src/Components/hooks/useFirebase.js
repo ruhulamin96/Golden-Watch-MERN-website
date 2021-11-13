@@ -85,7 +85,7 @@ const useFirebase = () => {
         }
       })
       .catch((error) => {
-        // setError(error.message)
+        setError(error.message)
         const errorCode = error.code;
         const errorMessage = error.message;
       })
