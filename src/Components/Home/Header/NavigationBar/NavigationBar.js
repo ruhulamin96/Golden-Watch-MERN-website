@@ -81,7 +81,7 @@ if (isLoading) {
                 </Link>
               </li>
             </ul>
-            <form class="d-flex">
+            <form class="d-flex justify-content-center">
               {user?.email ? (
                 <button
                   class="btn fs-4 bottom-border  fw-bold"
