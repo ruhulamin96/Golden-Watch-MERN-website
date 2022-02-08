@@ -12,7 +12,7 @@ function Review() {
 
   return (
     <div className="container">
-      <h1 className="text_color my-5">PRODUCT REVIEW</h1>
+      <h2 className="text_color my-5 fw-bold" style={{letterSpacing:"3px"}}>PRODUCT REVIEW</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {review.map((review) => (
           <div class="col">

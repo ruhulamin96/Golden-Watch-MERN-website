@@ -29,9 +29,9 @@ function AllProducts() {
   return (
     <div>
       <div className="container mt-5 ">
-        <h1 className="my-5 text_color">
+        <h3 className="my-5 text_color fw-bold" style={{letterSpacing:"5px"}}>
           THE WORLD’S BEST LUXURY WATCH BRANDS
-        </h1>
+        </h3>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           {allProducts.map((product) => (
             <div class="col">
@@ -43,7 +43,7 @@ function AllProducts() {
                   <h5 class="card-title text_color fw-bold">{product.name}</h5>
                   <p class="card-text">{product.desc}</p>
                   <h5 className="text_color fw-bold">
-                    Price: {product.price}$
+                    Price: ${product.price}
                   </h5>
                   <div className="">
                     <Link to={`/placeorder/${product._id}`}>

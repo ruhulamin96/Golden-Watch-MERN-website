@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
-function MyOrders() {
+function MyOrders( {handleProduct}) {
   const { user } = useAuth();
   const [myOrder, setMyOrder] = useState([]);
   const [isload, setIsLoad] = useState(true);
@@ -19,7 +19,7 @@ function MyOrders() {
         if (result.data.deletedCount) {
           const filter = myOrder.filter((order) => order._id !== id);
           setMyOrder(filter);
-          
+          handleProduct()
         }
         setIsLoad(false)
       });

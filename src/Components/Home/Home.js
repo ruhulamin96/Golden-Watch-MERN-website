@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import useAuth from "../hooks/useAuth";
 import AboutUs from "./AboutUs/AboutUs";
 import Accessories from "./Accessories/Accessories";
 import Footer from "./Footer/Footer";
@@ -8,8 +9,9 @@ import NavigationBar from "./Header/NavigationBar/NavigationBar";
 import Products from "./Products/Products";
 import Review from "./Review/Review";
 
-function Home() {
+function Home({size}) {
   const [products, setProducts] = useState([]);
+  
   const [load, setLoad] = useState(true);
   useEffect(() => {
     axios
@@ -19,6 +21,8 @@ function Home() {
         setLoad(false);
       });
   }, []);
+
+
   if (load) {
     return (
       <div className="d-flex align-items-center justify-content-center h-100 position-absolute w-100 text_color">
@@ -33,7 +37,7 @@ function Home() {
 
   return (
     <div>
-      <NavigationBar></NavigationBar>
+      <NavigationBar size={size}></NavigationBar>
       <Banner></Banner>
       <AboutUs></AboutUs>
       <Products></Products>

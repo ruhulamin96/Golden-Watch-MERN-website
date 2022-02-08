@@ -14,7 +14,7 @@ function Product({ product }) {
           <div class="card-body d-flex justify-content-end flex-column">
             <h4 class="card-title text_color fw-bold">{name}</h4>
             <p class="card-text">{desc}</p>
-            <h5 className=" text_color fw-bold">Price: {price}$</h5>
+            <h5 className=" text_color fw-bold">Price: ${price}</h5>
             <div className="">
               <Link to={`/placeorder/${_id}`}>
                 <button className=" product-about w-75 fw-bold">

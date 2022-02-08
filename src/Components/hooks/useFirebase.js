@@ -18,7 +18,7 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [isload, setIsload] = useState(true);
-
+  const [cart , setCart]=useState([]);
   ///create new user
   const createUser = (email, password, history, location, name) => {
     setIsLoading(true);
@@ -55,12 +55,16 @@ const useFirebase = () => {
   };
   //Observer
   useEffect(() => {
+    setIsload(true)
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         setUser(user);
+  //       axios.get(`https://enigmatic-fjord-26508.herokuapp.com/placeOrders?email=${user?.email}`)
+  // .then((result) => { setIsload(false)
+  //   setCart(result.data)});
       } else {
         // User is signed out
         // ...
@@ -125,6 +129,7 @@ const useFirebase = () => {
 
   return {
     user,
+    cart,
     createUser,
     loginUser,
     logout,

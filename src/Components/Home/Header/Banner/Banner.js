@@ -2,7 +2,7 @@ import React from "react";
 import img1 from '../../../../images/carousel1.jpg'
 import img2 from '../../../../images/carousel2.jpg'
 import img3 from '../../../../images/carousel3.jpg'
-
+import './Banner.css'
 function Banner() {
   return (
     <div className="container">
@@ -34,6 +34,7 @@ function Banner() {
           ></button>
         </div>
         <div class="carousel-inner">
+         
           <div class="carousel-item active">
             <img src={img1} class="d-block w-100 rounded" alt="..." />
             <div class="carousel-caption d-none d-md-block">

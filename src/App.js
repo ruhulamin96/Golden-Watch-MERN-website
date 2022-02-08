@@ -1,8 +1,7 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Components/Home/Home";
-import AuthProvider from "./Components/AuthProvider/AuthProvider";
 import AllProducts from "./Components/Home/Products/AllProduct/AllProducts";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Login/Register/Register";
@@ -11,40 +10,70 @@ import PlaceOrder from "./Components/Home/Products/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import NewDashBoard from "./Components/Dashboard/NewDashBoard";
 import NotFound from "./Components/Home/NotFound/NotFound";
+import axios from "axios";
+import useAuth from "./Components/hooks/useAuth";
+
 function App() {
+  const { user, isLoading } = useAuth();
+  const [cart, setCart] = useState([]);
+  const [load, setLoad] = useState(true);
+  useEffect(() => {
+    axios
+      .get(
+        `https://enigmatic-fjord-26508.herokuapp.com/placeOrders?email=${user?.email}`
+      )
+      .then((result) => {
+        setCart(result.data);
+        setLoad(false);
+
+        console.log("cart", load, user.email);
+      });
+  }, [user.email]);
+
+  const handleProduct = () => {
+    axios
+      .get(
+        `https://enigmatic-fjord-26508.herokuapp.com/placeOrders?email=${user?.email}`
+      )
+      .then((result) => {
+        setCart(result.data);
+        setLoad(false);
+
+        console.log("cart", load, user.email);
+      });
+  };
+
   return (
     <div className="App">
-      <AuthProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route exact path="/allproducts">
-              <NavigationBar></NavigationBar>
-              <AllProducts></AllProducts>
-            </Route>
-            <Route exact path="/login">
-              <NavigationBar></NavigationBar>
-              <Login></Login>
-            </Route>
-            <Route exact path="/register">
-              <NavigationBar></NavigationBar>
-              <Register></Register>
-            </Route>
-            <PrivateRoute exact path="/placeorder/:Id">
-              <NavigationBar></NavigationBar>
-              <PlaceOrder></PlaceOrder>
-            </PrivateRoute>
-            <PrivateRoute path="/newdashboard">
-              <NewDashBoard></NewDashBoard>
-            </PrivateRoute>
-            <Route path="*">
-              <NotFound></NotFound>
-            </Route>
-          </Switch>
-        </Router>
-      </AuthProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home size={cart.length}></Home>
+          </Route>
+          <Route exact path="/allproducts">
+            <NavigationBar size={cart.length}></NavigationBar>
+            <AllProducts></AllProducts>
+          </Route>
+          <Route exact path="/login">
+            <NavigationBar></NavigationBar>
+            <Login></Login>
+          </Route>
+          <Route exact path="/register">
+            <NavigationBar></NavigationBar>
+            <Register></Register>
+          </Route>
+          <PrivateRoute exact path="/placeorder/:Id">
+            <NavigationBar size={cart.length}></NavigationBar>
+            <PlaceOrder  handleProduct={handleProduct}></PlaceOrder>
+          </PrivateRoute>
+          <PrivateRoute path="/newdashboard">
+            <NewDashBoard  handleProduct={handleProduct}></NewDashBoard>
+          </PrivateRoute>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

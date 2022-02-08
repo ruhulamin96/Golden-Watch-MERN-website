@@ -2,13 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
-function PlaceOrder() {
+import carousel1 from '../../../../images/carousel1.jpg'
+import carousel2 from '../../../../images/carousel2.jpg'
+import carousel3 from '../../../../images/carousel3.jpg'
+function PlaceOrder({ handleProduct}) {
+  const images=[carousel1, carousel2, carousel3]
+  const [selectedImg, setSelectedImg]=useState(images[0])
   const [product, setProduct] = useState();
   const [isLoad, setisLoad] = useState(true);
   const { user } = useAuth();
   const _id = useParams();
   const history = useHistory();
-  const phoneRef = useRef();
+  // const phoneRef = useRef();
+
+
   useEffect(() => {
     axios
       .get(`https://enigmatic-fjord-26508.herokuapp.com/products/${_id.Id}`)
@@ -18,15 +25,19 @@ function PlaceOrder() {
       });
   }, []);
 
+  
   const handleOrder = (e) => {
-    const phone = phoneRef.current.value;
+    // const phone = phoneRef.current.value;
+    alert('order confirm')
     const orderData = {
       name: user.displayName,
       email: user.email,
       productName: product.name,
       price: product.price,
-      phone,
+    
+      id: product._id
     };
+    // console.log(orderData)
     axios
       .post(
         "https://enigmatic-fjord-26508.herokuapp.com/placeOrders",
@@ -35,12 +46,14 @@ function PlaceOrder() {
       .then((result) => {
         if (result.data.insertedId) {
           alert("order is placed successfully");
+          handleProduct()
           history.push("/");
         }
       });
-    phoneRef.current.value = "";
+    // phoneRef.current.value = "";
     e.preventDefault();
   };
+ images.unshift(product?.img)
   if (isLoad) {
     return (
       <div className="d-flex align-items-center justify-content-center h-100 position-absolute w-100 text_color">
@@ -56,17 +69,24 @@ function PlaceOrder() {
     <div className="container">
       <h1 className="mt-3 text_color">PLACE YOUR ORDER</h1>
       <div className="row mt-5">
+        <div className="col-md-3">
+          { images.map((im, index)=><img style={{border:selectedImg===im?" 5px solid green":""}}
+          onClick={()=>setSelectedImg(im)}
+          className="w-50 m-2" src={im} alt="" />)}
+          
+        </div>
         <div className="col-md-6">
           <img
             style={{ borderRadius: "1rem" }}
-            src={product?.img}
+            src={selectedImg}
             className="w-100"
             alt=""
           />
         </div>
-        <div className="col-md-6 d-flex justify-content-center align-items-center flex-column">
-          <h3 className="my-3">{product?.name}</h3>
+        <div className="col-md-3 d-flex   flex-column">
+          <h3 className="my-3 fw-bold">{product?.name}</h3>
           <p>{product?.desc}</p>
+          <h4 className="fw-bold">Price: $ {product?.price}</h4>
           <div>
             {/* <!-- Button trigger modal --> */}
             <button
@@ -161,7 +181,7 @@ function PlaceOrder() {
                           />
                         </div>
                       </div>
-                      <div class="mb-3">
+                      {/* <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">
                           Phone Number
                         </label>
@@ -170,12 +190,14 @@ function PlaceOrder() {
                           type="text"
                           class="form-control"
                           id="formGroupExampleInput2"
-                          placeholder="Phone Number"
+                          
+                          placeholder="Phone Number Must required"
                           required
                         />
-                      </div>
+                      </div> */}
                       <div className="text-center">
                         <button
+                        // onClick={()=>handleAddproduct()}
                           class="btn btn-about"
                           data-bs-dismiss="modal"
                           type="submit"

@@ -22,6 +22,8 @@ function Login() {
   };
   return (
     <div className="container form-design text_color">
+      <h3>Email: ruhul@amin.com</h3>
+      <h3>Password: 123456789</h3>
        <h1 className="my-3">Login</h1>
       <form action="" className="form-child" onSubmit={handleLogin}>
         
