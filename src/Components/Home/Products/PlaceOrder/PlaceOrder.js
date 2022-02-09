@@ -69,13 +69,13 @@ function PlaceOrder({ handleProduct}) {
     <div className="container">
       <h1 className="mt-3 text_color">PLACE YOUR ORDER</h1>
       <div className="row mt-5">
-        <div className="col-md-3">
+        <div className="col-md-4">
           { images.map((im, index)=><img style={{border:selectedImg===im?" 5px solid green":""}}
           onClick={()=>setSelectedImg(im)}
           className="w-50 m-2" src={im} alt="" />)}
           
         </div>
-        <div className="col-md-6">
+        <div className="col-md-4">
           <img
             style={{ borderRadius: "1rem" }}
             src={selectedImg}
@@ -83,7 +83,7 @@ function PlaceOrder({ handleProduct}) {
             alt=""
           />
         </div>
-        <div className="col-md-3 d-flex   flex-column">
+        <div className="col-md-4 d-flex   flex-column">
           <h3 className="my-3 fw-bold">{product?.name}</h3>
           <p>{product?.desc}</p>
           <h4 className="fw-bold">Price: $ {product?.price}</h4>
