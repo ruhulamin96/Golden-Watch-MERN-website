@@ -38,8 +38,6 @@ function App() {
       .then((result) => {
         setCart(result.data);
         setLoad(false);
-
-        console.log("cart", load, user.email);
       });
   };
 

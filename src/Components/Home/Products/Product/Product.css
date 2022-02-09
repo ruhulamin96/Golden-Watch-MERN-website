@@ -19,3 +19,7 @@
 
     text-decoration: none;
   }
+  .card-hover:hover{
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.233), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+  }
