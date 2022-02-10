@@ -31,7 +31,7 @@ function Products({handleAddproduct}) {
     <div>
       <div className="container mb-5">
         <h2 className="my-5 text_color fw-bold" style={{letterSpacing:"5px"}}>GRAB THE BEST LUXURY WATCH BRANDS</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4 " >
           {products.map((product) => (
             <Product handleAddproduct={handleAddproduct} product={product}></Product>
           ))}

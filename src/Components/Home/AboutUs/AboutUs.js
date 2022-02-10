@@ -1,12 +1,14 @@
 import React from 'react'
 import about from '../../../images/about.jpg'
+
 import './AboutUs.css'
 function AboutUs() {
+  
     return (
         <div>
-            <div className="container mt-5">
+            <div className="container mt-5 ">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6"  >
                         <h3 style={{color:'#C40D2E', fontWeight:"bold", letterSpacing:"5px"}}>
                         HIGHEST AUCTION PRICE FOR SPEEDMASTER 
                         </h3>

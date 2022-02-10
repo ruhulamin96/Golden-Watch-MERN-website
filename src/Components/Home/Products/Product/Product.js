@@ -6,7 +6,8 @@ function Product({ product }) {
   const { img, desc, price, name, _id } = product;
   return (
     <div>
-      <div class="col">
+      <div class="col " data-aos="zoom-in-left" data-aos-duration="1000"
+      data-aos-delay="50">
         <div class="card h-100 border-0 card-hover">
           <div className="img-hover-zoom">
             <img src={img} class="card-img-top" alt="..." />

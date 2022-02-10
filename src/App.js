@@ -12,8 +12,10 @@ import NewDashBoard from "./Components/Dashboard/NewDashBoard";
 import NotFound from "./Components/Home/NotFound/NotFound";
 import axios from "axios";
 import useAuth from "./Components/hooks/useAuth";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 function App() {
+  AOS.init();
   const { user, isLoading } = useAuth();
   const [cart, setCart] = useState([]);
   const [load, setLoad] = useState(true);
